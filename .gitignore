@@ -1,0 +1,2 @@
+#ingora carpeta node_modules, se instala con npm install bajo package.json 
+/node_modules

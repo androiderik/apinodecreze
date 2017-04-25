@@ -1,0 +1,32 @@
+{
+  "name": "nodejsapi",
+  "version": "1.0.0",
+  "description": "Api con nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/androiderik/nodeapicreze.git"
+  },
+  "keywords": [
+    "nodeapi"
+  ],
+  "dependencies": {
+    "express": "^4.15.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^4.0.0-alpha.6"
+  },
+    "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-loader": "^6.2.9",
+    "babel-preset-latest-minimal": "^1.1.2",
+    "babel-preset-react": "^6.16.0",  
+    "json-loader": "^0.5.4",
+    "webpack": "^1.14.0"
+  },
+  "author": "Erik",
+  "license": "MIT"
+}
