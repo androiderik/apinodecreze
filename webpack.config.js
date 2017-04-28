@@ -54,8 +54,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
-            jQuery: "jquery"
-        })
+           $: "jquery",
+           jQuery: "jquery"
+          })
     ],
     devServer: {
         hot: true,
