@@ -1,7 +1,18 @@
-<div class="container">
+<nav class="navbar navbar-default backgroundnav">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand " href="#">CREZE</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active navtext "><a href="#">Home</a></li>
+      <li><a class="navtext" href="#">Page 1</a></li>
+      <li><a class="navtext" href="#">Page 2</a></li>
+      <li><a class="navtext" href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">  
     <a ui-sref="about" class="nav-link">About</a>
-    <h2>API PARA CREZE</h2>
-
     <form ng-submit="createTask()">
         <input class="form-control todos__create-input" placeholder="What do I need to do?" ng-model="createTaskInput" />
         <button class="btn btn-success todos__create-button">Create Task</button>
@@ -58,4 +69,5 @@
             </td>
         </tr>
     </table>
-</div>
+    </div>
+

@@ -5,7 +5,7 @@ const todoFactory = angular.module('app.todoFactory', [])
 
 .factory('todoFactory', ($http) => {
     function getTasks($scope) {
-        $http.get('/todos').then(response => {
+        $http.get('/creditos').then(response => {
             $scope.todos = response.todos;
         });
     }
@@ -13,7 +13,7 @@ const todoFactory = angular.module('app.todoFactory', [])
     function createTask($scope, params) {
         if (!$scope.createTaskInput) { return; }
 
-        $http.post('/todos', {
+        $http.post('/creditos', {
             task: $scope.createTaskInput,
             isCompleted: false,
             isEditing: false
@@ -27,7 +27,7 @@ const todoFactory = angular.module('app.todoFactory', [])
     }
 
     function updateTask($scope, todo) {
-        $http.put(`/todos/${todo._id}`, { task: todo.updatedTask }).then(response => {
+        $http.put(`/creditos/${todo._id}`, { task: todo.updatedTask }).then(response => {
             getTasks($scope);
             todo.isEditing = false;
         });
@@ -37,7 +37,7 @@ const todoFactory = angular.module('app.todoFactory', [])
     }
 
     function deleteTask($scope, todoToDelete) {
-        $http.delete(`/todos/${todoToDelete._id}`).then(response => {
+        $http.delete(`/creditos/${todoToDelete._id}`).then(response => {
             getTasks($scope);
         });
 

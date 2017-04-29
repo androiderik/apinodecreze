@@ -1,6 +1,30 @@
 @import 'todos.scss';
 
+@font-face {
+    font-family: 'quendamedium';
+    src: url('quenda-medium-webfont.woff2') format('woff2'),
+         url('quenda-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+	color:#3161a5;	
+	font-family:'quendamedium';
+}
+
 .nav-link {
     float: right;
     margin-top: 20px;
+}
+.backgroundnav{
+	background-color:#3161a5;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#fff;
+}
+
+.navbar-default .navbar-brand{
+	color:#fff;
 }

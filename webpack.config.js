@@ -7,7 +7,7 @@ module.exports = {
         'webpack-dev-server/client?http://127.0.0.1:8081/',
         'webpack/hot/only-dev-server',
         'bootstrap-loader',
-        './src'
+        './src',
     ],
     output: {
         path: path.join(__dirname, 'public'),
@@ -24,7 +24,7 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel',
             query: {
-                presets: ['es2015']
+                presets: ['es2015','latest-minimal', 'react']
             }
         },
         {

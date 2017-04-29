@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/todos');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/creditos');
 
-var Todo = mongoose.model('Todo', {
-    task: String,
+var Creditos = mongoose.model('Creditos', {
+    title: String,
     isCompleted: Boolean,
     isEditing: Boolean
 });
 
-module.exports.Todo = Todo;
+module.exports.Creditos = Creditos;
