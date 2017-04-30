@@ -5,23 +5,38 @@ var router = express.Router();
 
 /*GET Todos los creditos /creditos*/
 router.get('/', function(req, res) { 
-    Creditos.find(function(err, results) {
+    Creditos.find({},function(err, results) {
         if (err) { console.log(err); }
-        res.send({ creditos: results });
+        res.json(results);
     });
 });
 
-/*POST Credito /creditos*/
-router.post('/:id', function(req, res) {
-    var creditos = new Creditos(req.id);
-    creditos.save(function(err, creditos) {
-        if (err) { console.log(err); }
-        res.json({title: creditos,
-            isCompleted: false,
-            isEditing: false})
-        console.log('Credito guardado');
-    });
-});
+
+//POST/vote/<id>
+    router.post('/:id', function (req, res) {
+    var onSave = function(credito)
+    {
+      return function (err) {
+        if(err) {
+          return res.sendStatus(500).json(err)
+        }
+         res.json(credito)
+          }
+          }
+      var id = req.params.id
+      Creditos.findOne({showId : id}, function(err, doc)
+      { 
+        if(doc) {
+          doc.count = doc.count + 1
+          doc.save(onSave(doc))
+        } else {
+        var creditos = new  Creditos()
+        creditos.showId = 1
+        creditos.credito = id
+        creditos.save(onSave(creditos))
+        }
+      }) //fin findOne
+       }) //fin post
 
 /*PUT  Actualiza credito /creditos/123*/ 
 router.put('/:id', function(req, res) {
@@ -44,5 +59,6 @@ router.delete('/:id', function(req, res) {
         res.send('Creditos eliminado');
     });
 });
+
 
 module.exports = router;

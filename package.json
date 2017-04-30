@@ -1,10 +1,10 @@
 {
-  "name": "RESTfull API creditos",
+  "name": "RESTfull",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "node server",
     "dev": "npm start & webpack-dev-server --progress --colors",
     "build": "webpack -w --progress --colors --config "
   },
