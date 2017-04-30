@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: [
         'webpack-dev-server/client?http://127.0.0.1:8081/',
-        'webpack/hot/only-dev-server',
+        //'webpack/hot/only-dev-server',
         'bootstrap-loader',
         './src',
     ],
@@ -51,7 +51,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        //new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
            $: "jquery",
