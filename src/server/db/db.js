@@ -3,7 +3,8 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/creditos');
 
 var Creditos = new mongoose.Schema({
 	showId: {type: Number},
-	credito: {type: String}
+	credito: {type: String},
+	count: {type: Number, default: 0 }
 })
 
 

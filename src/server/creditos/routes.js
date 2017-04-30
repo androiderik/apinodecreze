@@ -5,38 +5,39 @@ var router = express.Router();
 
 /*GET Todos los creditos /creditos*/
 router.get('/', function(req, res) { 
-    Creditos.find({},function(err, results) {
-        if (err) { console.log(err); }
+    Creditos.find({}, function(err, results) { //2do parametro de find es un callback (request asicronica)
+        if (err) {
+         return res.sendStatus(500).json(err) }
         res.json(results);
     });
 });
 
 
 //POST/vote/<id>
-    router.post('/:id', function (req, res) {
-    var onSave = function(credito)
-    {
+router.post('/:id', function (req, res) {
+    var onSave = function(credito) {
       return function (err) {
         if(err) {
           return res.sendStatus(500).json(err)
         }
          res.json(credito)
-          }
-          }
-      var id = req.params.id
-      Creditos.findOne({showId : id}, function(err, doc)
-      { 
-        if(doc) {
-          doc.count = doc.count + 1
-          doc.save(onSave(doc))
-        } else {
-        var creditos = new  Creditos()
-        creditos.showId = 1
-        creditos.credito = id
-        creditos.save(onSave(creditos))
         }
-      }) //fin findOne
-       }) //fin post
+    }
+          var id = req.params.id
+
+          Creditos.findOne({credito: id}, function(err, doc){ 
+            if(doc) {
+              doc.count = doc.count + 1
+              doc.save(onSave(doc))
+            } else {
+            var creditos = new  Creditos()
+            creditos.credito = id
+            //creditos.showId = id
+            creditos.count = 1
+            creditos.save(onSave(creditos))
+            }   
+          }) //findOne para evitar redundancia de datos
+        }) //fin post
 
 /*PUT  Actualiza credito /creditos/123*/ 
 router.put('/:id', function(req, res) {

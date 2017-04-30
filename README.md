@@ -1,57 +1,33 @@
-# Super MEAN Stack
-> An Angular + Node/Express + Webpack + MongoDB + SASS + Babel/ES6 + ui-router + Bootstrap starter kit
+## Synopsis
 
-*Note: This repository contains some minor updates that are not in the <a href="https://www.youtube.com/watch?v=6Sbau-oE37w" target="_blank">YouTube tutorial video</a>.*
+At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
 
-## Live App Demo
+importante: npm install para instalar las dependencias indicadas en package.json y npm run build para ejecutar webpack (ya incluye watcher como daemon para no hacer reload de webpack)
 
-Please don't abuse--although I realize I have no control over this :).
+## Code Example
 
-http://super-mean-stack.herokuapp.com/
+Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
-![Alt text](http://i288.photobucket.com/albums/ll175/michaelcheng429/Screen%20Shot%202016-02-02%20at%2011.10.48%20PM_zpsznagbxtb.png)
+## Motivation
 
-## Setup
+A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
 
-#### Option 1: Main Repository
-1. `git clone git@github.com:michaelcheng429/super-mean-stack.git`
-2. `cd super-mean-stack`
-3. `npm install`
+## Installation
 
-#### Option 2: Yeoman Generator
-1. `npm install -g yo`
-2. `npm i -g generator-super-mean-stack`
+Provide code examples and explanations of how to get the project.
 
-## Usage
+## API Reference
 
-### Development
-1. Make sure MongoDB is running (`mongod` from MongoDB bin directory)
-2. `npm run dev`
+Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
-### Production/Deployment (e.g., to Heroku)
+## Tests
 
-Make sure Heroku Toolbelt is installed (https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up).
+Describe and show how to run the tests with code examples.
 
-1. `npm run build`
-2. `git init`
-3. `heroku create {name-of-app}`
-4. `git push heroku master`
-5. `heroku addons:create mongolab:sandbox`
+## Contributors
 
-#### Troubleshooting
-1. Use Node version 5.5.0, which is the version used to create this app. You can use `n` (https://github.com/tj/n) or `nvm` (https://github.com/creationix/nvm) to change Node versions easily.
+Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
 
-## YouTube Tutorial Video
+## License
 
-https://youtu.be/6Sbau-oE37w
-
-## Todos
-1. Add testing
-2. ~~Add deployment instructions~~
-3. Add comments to code
-
-## Contributing
-Contributions/improvements are welcome!
-
-1. Fork the repo
-2. Make a pull request from you local repo
+A short snippet describing the license (MIT, Apache, etc.)

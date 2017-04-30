@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server",
     "dev": "npm start & webpack-dev-server --progress --colors",
-    "build": "webpack -w --progress --colors --config "
+    "build": "webpack -w --progress --colors --config ",
+    "nodemon": "nodemon server"
   },
   "keywords": [],
   "author": "Erik Rodriguez",
