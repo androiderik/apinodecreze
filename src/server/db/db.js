@@ -8,7 +8,7 @@ var Creditos = new mongoose.Schema({
 })
 
 
-module.exports.Creditos = mongoose.model('Creditos', Creditos)
+module.exports.Creditos = mongoose.model('creditos', Creditos)
 
 
 /*var Creditos = mongoose.model('Creditos', {

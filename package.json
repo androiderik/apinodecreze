@@ -1,7 +1,7 @@
 {
   "name": "RESTfull",
   "version": "1.0.0",
-  "description": "",
+  "defscription": "",
   "main": "index.js",
   "scripts": {
     "start": "node server",
@@ -11,20 +11,23 @@
   },
   "keywords": [],
   "author": "Erik Rodriguez",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-router": "^4.0.0-alpha.6",
     "angular": "^1.6.4",
     "angular-ui-router": "^0.3.2",
     "body-parser": "^1.14.2",
     "bootstrap-sass": "^3.3.6",
+    "es6-promise": "^3.0.2",
     "express": "^4.13.4",
     "jquery": "^2.2.0",
     "kerberos": "0.0.18",
     "lodash": "^4.1.0",
-    "mongoose": "^4.9.6"
+    "mongoose": "^4.9.6",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^4.0.0-alpha.6",
+    "sweetalert": "^1.1.3",
+    "sweetalert-react": "^0.4.9"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

@@ -4,10 +4,10 @@ var path = require('path');
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
-        'webpack-dev-server/client?http://127.0.0.1:8081/',
+        //'webpack-dev-server/client?http://127.0.0.1:8081/',
         //'webpack/hot/only-dev-server',
         'bootstrap-loader',
-        './src',
+        './src'
     ],
     output: {
         path: path.join(__dirname, 'public'),
@@ -31,6 +31,15 @@ module.exports = {
             test: /\.html$/,
             loader: 'raw'
         },
+        {
+            test: /\.css$/,
+            loader:'style!css!'
+        },
+        {
+            loader: 'json-loader',
+            test: /\.json$/
+        },
+        
         {
             test: /\.scss$/,
             loaders: [
@@ -63,5 +72,11 @@ module.exports = {
         proxy: {
             '*': 'http://localhost:3000'
         }
-    }
-};
+    },
+    /*node: {
+    net: "empty",
+    tls: "empty",
+    fs: "empty"
+    }*/
+      
+}

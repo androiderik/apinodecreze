@@ -1,31 +1,16 @@
-Definir alcance del API
-GET : /200 
-Hola mundo //DONE
+Alcance del API
 
-POST: /movie 201
-crear pelicula //DONE
+POST: /api/creditos/:id 201
+crear credito 
 
-GET: /movie 200
-Obtener todas las peliculas //DONE
+GET: /api/creditos/ 200
+Obtener todos los creditos
 
-GET: /movie/:id 200
-Obtener una sola pelicula //DONE
+GET: /api/creditos/:id 200
+Obtener un solo credito
 
-PUT: /movie/:id 200
-Modificar una sola pelicula
+PUT: /api/creditos/:id 200
+Modificar un credito
 
-DELETE: /movie/:id 400
-Eliminar una sola pelicula
-
-POST: /user 201
-crea un usuario
-
-GET: /user/:id 200
-Obtiene un usuario
-
-PUT: /user/:id 200
-Actualiza al usuario
-
-DELETE: /user/:id 400
-Elimina el usuario
-
+DELETE: /api/creditos/:id 400
+Eliminar un solo credito

@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>API</title>
-        <base href="/">
-    </head>
-    <body>
-        <div ui-view></div>
-        <script src="bundle.js"></script>
-    </body>
-</html>
+  <head>
+  <title>API</title>
+  <base href="/">
+  </head>
+<body>
+
+<div id="menu"></div>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <tr>
+      <h1  class="text-center">SOLICITUDES DE CREDITO Y SCORE</h1>
+      </tr>
+    </table>
+  </div>
+</div>
+    
+<div class="container">
+  <div class="row tabfilter">
+    <h2>SOLICITUDES DE CREDITO Y SCORE</h2>
+    <ul class="nav nav-pills">
+      <li><a data-toggle="pill" href="#home">Todas</a></li>
+      <li><a data-toggle="pill" href="#menu1">Ventas menores a $3000k</a></li>
+      <li class="active"><a data-toggle="pill" href="#menu2">Aplicaciones recibidas</a></li>
+      <li><a data-toggle="pill" href="#menu3">Verificados</a></li>
+      <li><a data-toggle="pill" href="#menu4">Aprobados</a></li>
+      <li><a data-toggle="pill" href="#menu5">Aceptados</a></li>
+      <li><a data-toggle="pill" href="#menu6">Rechazados</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+<div class="row datafilter">
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in">
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade in active">
+        <div id="app"></div>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+     <div id="menu4" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+     <div id="menu5" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+     <div id="menu6" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>    
+  </div>
+</div>
+</div>    
+        
+<script src="bundle.js"></script>
+  </body>
+  </html>

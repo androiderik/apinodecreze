@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'quendamedium';
+    src: url('quenda-medium-webfont.woff2') format('woff2'),
+         url('quenda-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+	color:#3161a5;	
+	font-family:'quendamedium';
+}
+
+.nav-link {
+    float: right;
+    margin-top: 20px;
+}
+.backgroundnav{
+	background-color:#3161a5;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#fff;
+}
+
+.navbar-default .navbar-brand{
+	color:#fff;
+}
+.logo{
+    height:50px;
+    width:102px;
+    margin-left: -15px;
+}
+.nav-pills>li>a{
+    color:rgba(119, 119, 119, 0.6);
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #3161a5;
+    background-color: rgba(119, 119, 119, 0.1);
+}
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+
+.active{
+    border-bottom:2px solid #337ab7;
+}
+.tab-content > .active {
+    border: none;
+}
+/*Main-Nav*/
+.mainav {
+    box-shadow: 0px 0px 20px 0px #090909;
+}
+/*Nav-Pills*/
+.nav-pills > li {
+    float: left;
+    margin-left: 15%;
+}
+ul.nav.nav-pills {
+    background-color: rgba(119, 119, 119, 0.1);
+}
+.tabfilter{
+    box-shadow: 0px 0px 5px 0px;
+        margin-bottom:20vh;
+}
+.datafilter{
+    box-shadow: 0px 0px 5px 0px;
+}
+
+/* Media Querys*/
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .nav-pills > li {
+  margin-left: 1%;
+  }
+}
+
+/* ----------- iPad 1 and 2 ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .nav-pills > li {
+  margin-left: 1%;
+  }
+}
+

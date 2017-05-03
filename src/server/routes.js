@@ -1,5 +1,6 @@
-var creditosRoutes = require('./creditos/routes');
+var creditosRoutes = require('./creditos/api');
 
 module.exports = function routes(app) {
-    app.use('/creditos', creditosRoutes);
+    app.use('/api', creditosRoutes);
+
 };

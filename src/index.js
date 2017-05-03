@@ -1,5 +1,11 @@
-import angular from 'angular';
-import appModule from 'config';
-import 'css/master.scss';
+import React from 'react';
+import { render } from 'react-dom';
+import App from 'components/app';
+import Menu from 'components/static';
+import 'css/master.css';
 
-angular.bootstrap(document, [appModule.name]);
+render(<Menu />, document.getElementById('menu'));
+render(<App />, document.getElementById('app'));
+
+
+	
