@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/creditos');
 
 var Creditos = new mongoose.Schema({
@@ -9,6 +9,8 @@ var Creditos = new mongoose.Schema({
 
 
 module.exports.Creditos = mongoose.model('creditos', Creditos)
+
+*/
 
 
 /*var Creditos = mongoose.model('Creditos', {
