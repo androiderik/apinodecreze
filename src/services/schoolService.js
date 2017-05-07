@@ -1,6 +1,10 @@
 var $ = require("jquery");
 var promise = require("es6-promise");
-var resourceUrl = "http://localhost:7777/api/schools";
+var resourceUrl = "http://localhost:3001/api/register";
+var SweetAjs = require ('sweetalert-react'); //js
+var SweetAcss =require ('../../node_modules/sweetalert/dist/sweetalert.css'); //css
+var ajax = require ('../../public/signup.html'); //ajaxid
+
 
 module.exports = {
     addEscuela: function (school) {
@@ -13,8 +17,15 @@ module.exports = {
                 dataType: "json",
                 contentType: "application/json",
                 success: resolve,
-                error: reject
-            });
+                error: reject,
+           success: function(data){  //if there is no errors in request. 
+            data.name == 'ValidationError'?     //object error(but not the request)
+            swal("Error", "No se pudieron guardar tus datos.", "error") 
+            : swal("Exito", "Datos guardados.", "success") //no error object
+            }
+            
+            
+        });
         });
     },
     getSchools: function () {

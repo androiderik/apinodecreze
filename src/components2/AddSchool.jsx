@@ -4,8 +4,8 @@ var actions = require("../actions/SchoolActions");
 module.exports = React.createClass({
     getInitialState:function(){
       return {
-          name:"",
-          tagline:""
+          NombreCl:"",
+          Mont:""
       }  
     },
     addEscuela:function(e){
@@ -21,17 +21,25 @@ module.exports = React.createClass({
     },
     render:function(){
         return(
-            <form className="form" onSubmit={this.addEscuela}>
+            <form className="form" className="col-md-4 col-md-offset-4" onSubmit={this.addEscuela} >
                 <div className="form-group">
                     <label className="control-label" htmlFor="name">Nombre cliente:</label>
-                    <input type="text" className="form-control" id="name" name="name" value={this.state.name} onChange={this.handleInputChange} placeholder="Nombre Cliente" />                    
+                    <input type="text" className="form-control" id="name" name="UserName" value={this.state.name} onChange={this.handleInputChange} placeholder="Nombre Cliente" />                    
                 </div>
                 <div className="form-group">
-                    <label className="control-label" htmlFor="tagline">Monto:</label>
-                    <input type="text" className="form-control" id="tagline" name="tagline" value={this.state.address} onChange={this.handleInputChange} placeholder="Monto" />                    
+                    <label className="control-label" htmlFor="tagline">Contraseña:</label>
+                    <input type="password" className="form-control" id="tagline" name="Pass" value={this.state.address} onChange={this.handleInputChange} placeholder="Password" />                    
                 </div>
                 <div className="form-group">
-                    <button className="btn" type="submit">Add School</button>
+                    <label className="control-label" htmlFor="tagline">E-mail:</label>
+                    <input type="text" className="form-control" id="tagline" name="Email" value={this.state.name} onChange={this.handleInputChange} placeholder="E-mail" />                    
+                </div>
+                <div className="form-group">
+                    <label className="control-label" htmlFor="tagline">Usuario:</label>
+                    <input type="text" className="form-control" id="tagline" name="User" value={this.state.name} onChange={this.handleInputChange} placeholder="Usuario" />                    
+                </div>
+                <div className="form-group col-md-4 col-md-offset-4">
+                    <button className="btn" type="submit">REGISTRO</button>
                 </div>
             </form>
         )

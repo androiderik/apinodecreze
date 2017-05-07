@@ -3,12 +3,12 @@ var School = require("../data/school");
 var _ = require("underscore");
 
 var router = require("express").Router();
-router.route("/schools/:id?").get(getSchools).post(addSchool).delete(deleteSchool);
+router.route("/register/:id?").get(getSchools).post(addSchool).delete(deleteSchool);
 
 function getSchools(req, res) {
     School.find(function (err, schools) {
         if (err)
-            res.send(err);
+            res.json(err);
         else
             res.json(schools);
     });
@@ -18,7 +18,7 @@ function addSchool(req, res) {
     var school = new School(_.extend({}, req.body));
     school.save(function (err) {
         if (err)
-            res.send(err);
+            res.json(err);
         else
             res.json(school);
     });

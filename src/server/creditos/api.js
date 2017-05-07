@@ -1,7 +1,9 @@
-var mongoose = require('mongoose');
-var Creditos = require('../db/db').Creditos;
-var express = require('express');
-var router = express.Router();
+var mongoose = require("mongoose");
+var Creditos= require("../data/creditos");
+var _ = require("underscore");
+
+var router = require("express").Router();
+
 
 /* Rutas montadas a /api */
 /*GET Todos los creditos /creditos*/
@@ -13,53 +15,25 @@ router.get('/creditos', function(req, res) {
           res.json(results);
     });
 });
-//POST/vote/<id>
-router.post('/creditos/:id', function (req, res) {
-    var onSave = function(credito) {
-      return function (err) {
-        if(err) {
-          return res.sendStatus(500).json(err)
-        }
-         res.json(credito)
-        }
-    }     
 
-          var idBody =  req.body  
-          var id = req.params.id
-
-          Creditos.findOne({credito: id}, function(err, doc){ 
-            if(doc) {
-              doc.count = doc.count + 1
-              doc.save(onSave(doc))
-            } else {
-            var creditos = new  Creditos()
-            creditos.credito = id
-            //creditos.showId = id
-            creditos.count = 1
-            creditos.save(onSave(creditos))
-            }   
-          }) //findOne para evitar redundancia de datos
-        }) //fin post
-
-/*PUT  Actualiza credito /creditos/123*/ 
-router.put('/creditos/:id', function(req, res) {
-    var id = req.params.id;
-    Creditos.update({ _id: mongoose.Types.ObjectId(id) }, {
-        $set: { task: req.body.task }
-    }, function(err) {
-        if (err) { console.log(err); }
-
-        res.send('Credito actualizado');
+router.post('/creditos', function(req, res) { 
+    var creditos = new Creditos(_.extend({}, req.body));
+    creditos.save(function (err) {
+        if (err)
+            res.send(err);
+        else
+            console.log('POST: creditos  ✓');
+            res.json(creditos);
     });
 });
 
-/*DELETE un credito /creditos/123 */
-router.delete('/creditos/:id', function(req, res) {
+router.delete('/creditos', function(req, res) { 
     var id = req.params.id;
-    Creditos.remove({ _id: mongoose.Types.ObjectId(id) }, function(err) {
-        if (err) { console.log(err); }
-
-        res.send('Creditos eliminado');
+    Creditos.remove({ _id: id }, function (err, removed) {
+        if (err)
+            res.send(err)
+        else
+            res.json(removed);
     });
 });
 

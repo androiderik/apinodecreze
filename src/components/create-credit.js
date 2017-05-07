@@ -20,7 +20,7 @@ class CreditosList extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleCreate.bind(this)}>
-                <input type="text"className="col-md-6"  placeholder="Monto" ref="createInput" />
+                <input type="text"className="col-md-6"  placeholder="Nombre Cliente" name="NombreCliente" ref="createInput" />
                 <button>Crear</button>
                 {this.renderError()}
             </form>

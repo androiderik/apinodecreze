@@ -3,15 +3,16 @@ import CreateCredit from './create-credit';
 import CreditList from './credit-list';
 import $ from 'jquery';
 //import uri from '../server/creditos/routes';
+var resourceUrl = "http://localhost:3001/api/creditos";
 
 
 const creditos = [
 {
-    credito: '151111,000',
+    NombreCliente: '151111,000',
     isCompleted: false
 },
 {
-    credito: '100,000',
+    NombreCliente: '100,000',
     isCompleted: false
 }
 ];
@@ -47,11 +48,26 @@ class App extends React.Component {
     }
 
     createTask(credito) {
-         this.state.creditos.push({
-         credito,
-        isCompleted: false
-        });
-         this.setState({ creditos: this.state.creditos });
+         $.ajax({
+            url: resourceUrl,
+            data: JSON.stringify(this.state.creditos),
+            method: "POST",
+            dataType: "json",
+            contentType:"application/json",
+            beforeSend: function(){
+              swal({   title: "Procesando",   
+              text: "Estoy validando tus datos...", 
+              showConfirmButton: false });
+              },
+           success: function(data){
+               swal ({title: 'Datos guardados.', data:data});             
+                }
+                }),
+                this.state.creditos.push({
+                credito,
+                isCompleted: false
+                });
+                this.setState({ creditos: this.state.creditos });
         }
        
 
