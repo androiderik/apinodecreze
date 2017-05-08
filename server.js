@@ -27,23 +27,11 @@ app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use("/api", schoolController);
-app.use("/api", apiController);
 
-routes(app);
-
-app.get('/signup', function(req, res){
-	 res.sendFile(path.join(__dirname, 'public/signup.html'));
+// Always return the main index.html, so react-router render the route in the client
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'dashboard.html'));
 });
-
-app.get('/', function (req, res){
-	res.sendFile(path.join(__dirname, 'public/index.html'));
-});
-
-app.get('/about', function(req, res){
-	 res.sendFile(path.join(__dirname, 'src/about/about.html'));
-});
-
 
 /*app.all('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/index.html'));

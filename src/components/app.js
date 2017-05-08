@@ -36,7 +36,7 @@ class App extends React.Component {
                     deleteTask={this.deleteTask.bind(this)}
                 />
                 <CreateCredit creditos={this.state.creditos} createTask={this.createTask.bind(this)} />
-
+                
             </div>
         );
     }

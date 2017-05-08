@@ -3,7 +3,6 @@ var promise = require("es6-promise");
 var resourceUrl = "http://localhost:3001/api/register";
 var SweetAjs = require ('sweetalert-react'); //js
 var SweetAcss =require ('../../node_modules/sweetalert/dist/sweetalert.css'); //css
-var ajax = require ('../../public/signup.html'); //ajaxid
 
 
 module.exports = {
