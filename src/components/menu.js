@@ -23,8 +23,8 @@ import React from 'react';
 			      <li><a className="navtext" href="/about">Acerca de</a></li>
 			    </ul>
                 <ul className="nav navbar-nav navbar-right">
-                  <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                  <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Registrarse</a></li>
+                  <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Ingresar</a></li>
                 </ul>
                    </div>
 			  </nav>
