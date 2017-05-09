@@ -3,8 +3,9 @@ var app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var expressSession = require('express-session');
+var session = require('express-session');
 var passport = require('passport'); //Middleware core de passport 
+var expressValidator = require('express-validator');
 var routes = require('./src/server/routes');
 var apiController = require('./src/server/creditos/api');
 var schoolController = require("./src/server/controllers/schoolController");
@@ -12,27 +13,79 @@ var mongoose = require("mongoose");
 
 var PORT = process.env.PORT || 3001;
 
+// BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(expressSession({
-	secret: '1992',
-	resave: false,
-	saveUnitialized: false
-	}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Express Session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
 
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+
+<<<<<<< HEAD
 // Always return the main index.html, so react-router render the route in the client
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'dashboard.html'));
+=======
+routes(app);
+
+app.get('/signup', function (req, res){
+	 res.sendFile(path.join(__dirname, 'public/signup.html'));
 });
 
+app.get('/login', function (req, res){
+  res.sendFile(path.join(__dirname, 'public/login.html'));
+});
+
+app.get('/', ensureAuthenticated, function (req, res){
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+>>>>>>> recover3
+});
+function ensureAuthenticated(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  } else {
+    //req.flash('error_msg','You are not logged in');
+    res.redirect('/signup');
+  }
+}
+
+<<<<<<< HEAD
+=======
+app.get('/about', function (req, res){
+	 res.sendFile(path.join(__dirname, 'src/about/about.html'));
+});
+
+
+>>>>>>> recover3
 /*app.all('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });*/ //Todo desplegaria a index excepto rutas con router express(el API)
