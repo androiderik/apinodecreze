@@ -50,11 +50,9 @@ app.use(expressValidator({
 }));
 
 
-<<<<<<< HEAD
-// Always return the main index.html, so react-router render the route in the client
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'dashboard.html'));
-=======
+app.use("/api", schoolController);
+app.use("/api", apiController);
+
 routes(app);
 
 app.get('/signup', function (req, res){
@@ -66,26 +64,25 @@ app.get('/login', function (req, res){
 });
 
 app.get('/', ensureAuthenticated, function (req, res){
-	res.sendFile(path.join(__dirname, 'public/index.html'));
->>>>>>> recover3
+	res.sendFile(path.join(__dirname, 'public/dashboard.html'));
+
 });
 function ensureAuthenticated(req, res, next){
   if(req.isAuthenticated()){
     return next();
   } else {
     //req.flash('error_msg','You are not logged in');
-    res.redirect('/signup');
+    res.redirect('/login');
   }
 }
 
-<<<<<<< HEAD
-=======
+
 app.get('/about', function (req, res){
 	 res.sendFile(path.join(__dirname, 'src/about/about.html'));
 });
 
 
->>>>>>> recover3
+
 /*app.all('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });*/ //Todo desplegaria a index excepto rutas con router express(el API)

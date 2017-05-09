@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-var mongoose = require("mongoose");
-=======
  var mongoose = require("mongoose");
  var bcrypt = require('bcryptjs');
->>>>>>> recover3
+
 
  var validateEmail = function(Email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

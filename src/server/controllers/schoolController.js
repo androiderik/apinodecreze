@@ -1,23 +1,15 @@
 var mongoose = require("mongoose");
 var School = require("../data/school");
 var _ = require("underscore");
-<<<<<<< HEAD
-var crypto = require ("crypto");
-=======
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 
->>>>>>> recover3
 var router = require("express").Router();
+router.route("/register/:id?").get(getSchools).post(addSchool).delete(deleteSchool);
 
-<<<<<<< HEAD
-router.route("/register/:id?").get(getUsers).post(addUser).delete(deleteUser);
-function getUsers(req, res) {
-=======
 
 function getSchools(req, res) {
->>>>>>> recover3
     School.find(function (err, schools) {
         if (err)
             res.json(err);
@@ -26,15 +18,6 @@ function getSchools(req, res) {
     });
 }
 
-<<<<<<< HEAD
-function addUser(req, res) {
-    var passwordEncrypt= function(Pass){
-    let shasum = crypto.createHash('sha256')
-    shasum.update(Pass)
-    return shasum.digest('hex')
-    };
-    
-=======
 function addSchool(req, res) {
     var name = req.body.name;
     var email = req.body.email;
@@ -53,7 +36,6 @@ function addSchool(req, res) {
     var errors = req.validationErrors();
 
 
->>>>>>> recover3
     var school = new School(_.extend({}, req.body));
         School.createUser(school, function (err, user){
             if(err) 
@@ -67,7 +49,7 @@ function addSchool(req, res) {
 
 }
 
-function deleteUser(req, res) {
+function deleteSchool(req, res) {
     var id = req.params.id;
     School.remove({ _id: id }, function (err, removed) {
         if (err)
