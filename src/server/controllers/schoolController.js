@@ -59,52 +59,40 @@ function deleteSchool(req, res) {
     });
 }
 
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    School.getUserByUsername(username, function (err, user ) {
+        if(err) throw err;
+        if(!user) {
+            return done(null, false, {message: 'Usuario desconocido'});
+        }
 
-        passport.use(new LocalStrategy(
-      function (User, Pass, done) { 
-                School.getUserByUsername(User, function (err, user){
-                if(err) throw err;
-                if(!User){
-                    return done(null, false, {message: 'Unknown User'});
-                }
+    School.comparePassword(password, user.password, function (err, isMatch) {
+        if(err) throw err;
+        if(isMatch) {
+            return done(null, user);
+        } else {
+            return done(null, false, {  message: 'Invalid pasword'});
+        }
+    })    
+    })
+      }));
 
-                School.comparePassword(Pass, user.Pass, function(err, isMatch){
-                    if(err) res.send(err);
-                    if(isMatch){
-                        return done(null, user);
-                    } else {
-                        return done(null, false, {message: 'Invalid password'});
-                    }
-                });
-               });
-              }));
-
-        passport.serializeUser(function(user, done) {
-          done(null, user.id);
-        });
-
-        passport.deserializeUser(function(id, done) {
-          School.getUserById(id, function(err, user) {
-            done(err, user);
-          });
-        });
-
-
-router.post('/login', function(req, res, next) {
-  // generate the authenticate method and pass the req/res
-  passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err); }
-    if (!user) { console.log(err) }
-
-    // req / res held in closure
-    req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.send(user);
-    });
-
-  })(req, res, next);
-
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
 });
+
+passport.deserializeUser(function(id, done) {
+  School.getUserById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+router.post('/login',
+  passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login', failureFlash:true}),
+  function(req, res) {
+   res.redirect('/');
+  });
 
 
 

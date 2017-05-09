@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport'); //Middleware core de passport 
 var expressValidator = require('express-validator');
+var flash = require('connect-flash');
 var routes = require('./src/server/routes');
 var apiController = require('./src/server/creditos/api');
 var schoolController = require("./src/server/controllers/schoolController");
@@ -49,6 +50,19 @@ app.use(expressValidator({
   }
 }));
 
+// Connect Flash
+app.use(flash());
+
+
+// Global Vars
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user  = req.user || null;
+  next();
+});
+
 
 app.use("/api", schoolController);
 app.use("/api", apiController);
@@ -62,6 +76,15 @@ app.get('/signup', function (req, res){
 app.get('/login', function (req, res){
   res.sendFile(path.join(__dirname, 'public/login.html'));
 });
+
+app.get('/logout', function (req, res){
+  req.logout();
+
+  req.flash('success_msg', 'You are logged out');
+
+  res.redirect('/login');
+});
+
 
 app.get('/', ensureAuthenticated, function (req, res){
 	res.sendFile(path.join(__dirname, 'public/dashboard.html'));
@@ -80,6 +103,8 @@ function ensureAuthenticated(req, res, next){
 app.get('/about', function (req, res){
 	 res.sendFile(path.join(__dirname, 'src/about/about.html'));
 });
+
+
 
 
 

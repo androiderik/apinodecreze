@@ -11,7 +11,7 @@
 
  var registerUserSchema = new mongoose.Schema({
     UserName: { type: String, required: true, index: { unique: true } },
-    Pass: { type: String, required: true },
+  
     Email: {
         type: String,
         trim: true,
@@ -21,7 +21,13 @@
         validate: [validateEmail, 'E-mail inválido'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'E-mail inválido']
     },
-    User: {type: String, required: true, index: { unique: true } }
+    username: {
+        type: String,
+        index:true
+    },
+    password: {
+        type: String
+    }
    });
 
 
@@ -29,23 +35,24 @@
 
 module.exports.createUser = function(newUser, callback){
     bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.Pass, salt, function(err, hash) {
-            newUser.Pass = hash;
+        bcrypt.hash(newUser.password, salt, function(err, hash) {
+            newUser.password = hash;
             newUser.save(callback);
         });
     });
 }
 
-module.exports.getUserByUsername = function(User, callback){
-    var query = {User: User};
+module.exports.getUserByUsername = function (username, callback) {
+    var query = {username: username};
     School.findOne(query, callback);
 }
 
-module.exports.getUserById = function(id, callback){
+module.exports.getUserById = function (id, callback) {
+    
     School.findById(id, callback);
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback){
+module.exports.comparePassword = function (candidatePassword, hash, callback) {
     bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
         if(err) throw err;
         callback(null, isMatch);

@@ -18,15 +18,19 @@ import React from 'react';
 			      <img src={this.state.logo}className="logo" alt="logocreze" />
                
 			    </div>
-			    <ul className="nav navbar-nav">
-			      <li className="active navtext "><a href= {this.state.inicio}>Inicio</a></li>
-			      <li><a className="navtext" href="/about">Acerca de</a></li>
-			    </ul>
-                <ul className="nav navbar-nav navbar-right">
-
-                  <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Registrarse</a></li>
+  			    <ul className="nav navbar-nav">
+  			      <li className="active navtext "><a href= {this.state.inicio}>Inicio</a></li>
+  			      <li><a className="navtext" href="/about">Acerca de</a></li>
+  			    </ul>
+                  <ul className="nav navbar-nav navbar-right">
+                  
+                 {{#if user}}
+                  <li><a href="/logout"><span className="glyphicon glyphicon-log-in"></span>Cerrar Sesión</a></li>
+                 {{else}}
+                 <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Registrarse</a></li>
                   <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Ingresar</a></li>
-                </ul>
+                   {{/if}}
+                  </ul>
                    </div>
 			  </nav>
          

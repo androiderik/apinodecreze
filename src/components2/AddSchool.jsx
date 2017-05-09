@@ -28,7 +28,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="form-group">
                     <label className="control-label" htmlFor="tagline">Contraseña:</label>
-                    <input type="password" className="form-control" id="tagline" name="Pass" value={this.state.address} onChange={this.handleInputChange} placeholder="Password" />                    
+                    <input type="text" className="form-control" id="tagline" name="password" value={this.state.address} onChange={this.handleInputChange} placeholder="Password" />                    
                 </div>
                 <div className="form-group">
                     <label className="control-label" htmlFor="tagline">E-mail:</label>
@@ -36,7 +36,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="form-group">
                     <label className="control-label" htmlFor="tagline">Usuario:</label>
-                    <input type="text" className="form-control" id="tagline" name="User" value={this.state.name} onChange={this.handleInputChange} placeholder="Usuario" />                    
+                    <input type="text" className="form-control" id="tagline" name="username" value={this.state.name} onChange={this.handleInputChange} placeholder="Usuario" />                    
                 </div>
                 <div className="form-group col-md-4 col-md-offset-4">
                     <button className="btn" type="submit">REGISTRO</button>

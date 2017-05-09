@@ -14,6 +14,6 @@ var getSchoolsCallback = function(schools){
 schoolsStore.onChange(getSchoolsCallback);
 
 
-render(<Menu />, document.getElementById('menu'));
+render(<Menu  isLoggedIn={false} />, document.getElementById('menu'));
 render(<SchoolsList schools={_schools}  />, document.getElementById('form'));
 render(<App />, document.getElementById('app'));

@@ -19,6 +19,7 @@
     "bootstrap-sass": "^3.3.6",
     "cookie-parser": "^1.4.3",
     "classnames": "^2.2.5",
+    "connect-flash": "*",
     "es6-promise": "^3.0.2",
     "express": "^4.13.4",
     "express-session": "^1.15.2",
