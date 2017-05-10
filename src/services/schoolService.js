@@ -21,6 +21,7 @@ module.exports = {
             data.name == 'ValidationError'?     //object error(but not the request)
             swal("Error", "No se pudieron guardar tus datos.", "error") 
             : swal("Exito", "Datos guardados.", "success") //no error object
+            console.log(data);
             }
             
             

@@ -10,10 +10,8 @@
 
 
  var registerUserSchema = new mongoose.Schema({
-    UserName: { type: String, required: true, index: { unique: true } },
-  
     Email: {
-        type: String,
+       type: String,
         trim: true,
         lowercase: true,
         unique: true,
@@ -21,23 +19,21 @@
         validate: [validateEmail, 'E-mail inválido'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'E-mail inválido']
     },
-    username: {
-        type: String,
-        index:true
-    },
-    password: {
-        type: String
-    }
+    username: {type: String,
+        required: true, index: { unique: true } },
+    password:  { type: String, required: true },
+    UserName: { type: String, required: true}
+  
    });
 
 
  var School= module.exports = mongoose.model('Registered', registerUserSchema, 'register');
 
-module.exports.createUser = function(newUser, callback){
+module.exports.createUser = function(school, callback){
     bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.password, salt, function(err, hash) {
-            newUser.password = hash;
-            newUser.save(callback);
+        bcrypt.hash(school.password, salt, function(err, hash) {
+            school.password = hash;
+            school.save(callback);
         });
     });
 }

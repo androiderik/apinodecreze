@@ -54,14 +54,6 @@ app.use(expressValidator({
 app.use(flash());
 
 
-// Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user  = req.user || null;
-  next();
-});
 
 
 app.use("/api", schoolController);
@@ -103,9 +95,6 @@ function ensureAuthenticated(req, res, next){
 app.get('/about', function (req, res){
 	 res.sendFile(path.join(__dirname, 'src/about/about.html'));
 });
-
-
-
 
 
 /*app.all('/*', function(req, res) {

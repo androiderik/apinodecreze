@@ -28,7 +28,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="form-group">
                     <label className="control-label" htmlFor="tagline">Contraseña:</label>
-                    <input type="text" className="form-control" id="tagline" name="password" value={this.state.address} onChange={this.handleInputChange} placeholder="Password" />                    
+                    <input type="password" className="form-control" id="tagline" name="password" value={this.state.address} onChange={this.handleInputChange} placeholder="Password" />                    
                 </div>
                 <div className="form-group">
                     <label className="control-label" htmlFor="tagline">E-mail:</label>

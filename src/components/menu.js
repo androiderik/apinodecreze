@@ -24,12 +24,12 @@ import React from 'react';
   			    </ul>
                   <ul className="nav navbar-nav navbar-right">
                   
-                 {{#if user}}
+                
                   <li><a href="/logout"><span className="glyphicon glyphicon-log-in"></span>Cerrar Sesión</a></li>
-                 {{else}}
+                 
                  <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Registrarse</a></li>
                   <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Ingresar</a></li>
-                   {{/if}}
+           
                   </ul>
                    </div>
 			  </nav>
